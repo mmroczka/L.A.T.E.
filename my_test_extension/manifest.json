@@ -1,14 +1,20 @@
 {
-    "manifest_version": 2,
     "name": "My Chrome Extension",
-    "description": "This extension is running the Python code.",
     "version": "1.0",
+    "manifest_version": 2,
+    "description": "This extension is running the Python code.",
 
     "browser_action": 
     {
         "default_icon": "icon.png",
         "default_popup": "popup.html"
     },
+
+    "content_scripts": [ {
+       "matches": [ "http://*/*", "https://*/*" ],
+       "js":["popup.js"],
+       "css": [ "styles.css" ]
+    } ],
 
     "permissions": [
         "activeTab",
