@@ -29,6 +29,52 @@
             <span class="slider round"></span>
         </label>
         <label for="random_id">Random Mode</label>
-
-    </body>
+        <div>
+            <label for="languageFrom">Translate random words from</label>
+            <select name="LanguageFrom" id="languageFrom">
+                <option selected disabled>Detect Language</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+            </select>
+            <label for="languageTo">to</label>
+            <select name="LanguageTo" id="languageTo">
+                <option selected value="French">French</option>
+                <option value="Spanish">Spanish</option>
+            </select>.
+        </div>
+        <div class="checkbox">
+            <label><input type="checkbox" value="dontTranslate" checked>Don't translate words already in my dictionary - let dictionary mode
+                translate them automatically.</label>
+        </div>
+        <div>
+            <label for="limit">Limit to first</label>
+            <select name="limit" id="limit">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option selected value="3">3</option>
+            </select> paragraph(s).
+        </div>
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadioInline1" name="customRadio" value="1" checked>
+            <label class="custom-control-label" for="customRadioInline1">Translate Percentage of Words</label>
+        </div>
+        <select name="percentage" id="percentage">
+            <option value="5">5</option>
+            <option selected value="10">10</option>
+        </select>
+        <label for="percentageType">% of</label>
+        <select name="percentageType" id="percentageType">
+            <option selected value="words">words</option>
+            <option value="sentences">sentences</option>
+        </select>.
+        <div class="custom-control custom-radio">
+            <input type="radio" id="customRadioInline2" name="customRadio" value="2">
+            <label class="custom-control-label" for="customRadioInline2">Translate Number of Words</label>
+        </div>
+        <select name="number" id="numberType">
+            <option selected value="5">5</option>
+            <option value="10">10</option>
+        </select> words per page.
+    </form>
+</body>
 </html>
