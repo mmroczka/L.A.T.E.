@@ -6,7 +6,7 @@
         </title>
         <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../lib/dataTables/jquery.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/main.css">
+        <link rel="stylesheet" type="text/css" href="../css/settings.css">
         <script src="../lib/jquery/jquery.min.js"></script>
         <script src="../lib/dataTables/jquery.dataTables.min.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
@@ -27,13 +27,16 @@
         <div class="container">
             <ul>
                 <li>
-                    <input type="checkbox" id="option"><label for="option"> Electronics</label>
+                    <input type="checkbox" id="option"><label for="option">Show tool tip hint on hover</label>
                     <ul>
-                        <li><label><input type="checkbox" class="subOption"> Laptops</label></li>
-                        <li><label><input type="checkbox" class="subOption"> TVs</label></li>
-                        <li><label><input type="checkbox" class="subOption"> Microphones</label></li>
+                        <li><label><input type="checkbox" class="subOption">Show pronounciation guide in tool tip</label></li>
+                        <li><label><input type="checkbox" class="subOption">Link to audio pronounciation</label></li>
+                        <li><label><input type="checkbox" class="subOption">Add option to add word to dictionary</label></li>
                     </ul>
                 </li>
+                <li><label><input type="checkbox">Change word to different color on webpage</label></li>
+                <li><input type="color" id="myColor"> Color of translated word</li>
+                <li><button type="button" class="btn btn-outline-primary">Save</button></li>
             </ul>
         </div>
     </body>

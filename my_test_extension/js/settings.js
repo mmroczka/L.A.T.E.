@@ -1,19 +1,24 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var link = document.getElementById("click-this");
-    link.addEventListener("click", function() {
-        hellYeah('xxx');
-    });
+    var checkboxes = document.querySelectorAll('input.subOption'),
+        checkall = document.getElementById('option');
+
+    for(var i=0; i<checkboxes.length; i++) {
+      checkboxes[i].onclick = function() {
+        var checkedCount = document.querySelectorAll('input.subOption:checked').length;
+
+        checkall.checked = checkedCount > 0;
+        checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+      }
+    }
+
+    checkall.onclick = function() {
+      for(var i=0; i<checkboxes.length; i++) {
+        checkboxes[i].checked = this.checked;
+      }
+    }
 });
 
-function hellYeah(text) {
-  document.getElementById("text-holder").innerHTML = text;
+function pickColor() {
+    var x = document.getElementById("myColor").value;
+    document.getElementById("demo").innerHTML = x;
 }
-
-$(document).ready(function() {
-    $('#example').DataTable( {
-        "ajax": "data/dummy_dictionary.txt",
-        "scrollY": "200px",
-        "scrollCollapse": true,
-        "paging": false
-    } );
-} );

@@ -20,11 +20,15 @@
        "run_at": "document_end",
        "css": [ 
             "css/main.css",
+            "css/random.css",
+            "css/settings.css",
             "css/popup.css"
        ],
        "js":[
            "lib/jquery/jquery.min.js",
-           "js/popup.js"
+           "js/random.js",
+           "js/settings.js",
+           "js/dictionary.js"
        ],
        "matches": [ "<all_urls>", "http://*/*", "https://*/*" ]
     } ],
