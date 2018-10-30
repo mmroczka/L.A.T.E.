@@ -10,7 +10,7 @@
         <script src="../lib/jquery/jquery.min.js"></script>
         <script src="../lib/dataTables/jquery.dataTables.min.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
-        <script src="../js/popup.js"></script>
+        <script src="../js/settings.js"></script>
     </head>
     <body>
         <ul class="nav nav-tabs">
@@ -24,5 +24,17 @@
                 <a class="nav-link active" href="settings.html">Settings</a>
             </li>
         </ul>
-</body>
+        <div class="container">
+            <ul>
+                <li>
+                    <input type="checkbox" id="option"><label for="option"> Electronics</label>
+                    <ul>
+                        <li><label><input type="checkbox" class="subOption"> Laptops</label></li>
+                        <li><label><input type="checkbox" class="subOption"> TVs</label></li>
+                        <li><label><input type="checkbox" class="subOption"> Microphones</label></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>
