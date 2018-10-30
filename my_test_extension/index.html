@@ -9,13 +9,20 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <script src="lib/jquery/jquery.min.js"></script>
         <script src="lib/dataTables/jquery.dataTables.min.js"></script>
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="js/popup.js"></script>
     </head>
     <body>
-        <ul class="nav nav-tabs nav-justified .list-inline">
-            <li class="active"><a href="#">Dictionary Mode</a></li>
-            <li><a href="#">Random Mode</a></li>
-            <li><a href="#">Settings</a></li>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Dictionary Mode</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Random Mode</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Settings</a>
+            </li>
         </ul>
         <label class="switch">
             <input type="checkbox" name="dictionary" id="dictionary_id" value="value">
@@ -32,9 +39,18 @@
                 </tr>
             </thead>
         </table>
-        <div id="text-holder">
-            ha
+        <div class="container justify-content-center">
+            <div class="row">
+                <div class="col">
+                    <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Import</a>
+                </div>
+                <div class="col">
+                    <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Export</a>
+                </div>
+                <div class="col">
+                    <a href="#" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Clear</a>
+                </div>
+            </div>
         </div>
-        <a id="click-this">Click this link to change other text</a>
     </body>
 </html>
