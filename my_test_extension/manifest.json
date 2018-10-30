@@ -7,17 +7,33 @@
     "browser_action": 
     {
         "default_icon": "icon.png",
-        "default_popup": "popup.html"
+        "default_popup": "index.html"
+    },
+
+    "storage": {
+        "language": "es",
+        "name": "Spanish",
+        "enabled": true
     },
 
     "content_scripts": [ {
-       "matches": [ "http://*/*", "https://*/*" ],
-       "js":["popup.js"],
-       "css": [ "styles.css" ]
+       "run_at": "document_end",
+       "css": [ 
+            "css/main.css",
+            "css/popup.css"
+       ],
+       "js":[
+           "lib/jquery/jquery.min.js",
+           "js/popup.js"
+       ],
+       "matches": [ "<all_urls>", "http://*/*", "https://*/*" ]
     } ],
 
     "permissions": [
         "activeTab",
-        "https://ajax.googleapis.com/"
+        "https://ajax.googleapis.com/",
+        "tabs",
+        "debugger",
+        "storage"
     ]
 }

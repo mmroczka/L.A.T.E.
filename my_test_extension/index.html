@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+            Getting Started Extension's Popup
+        </title>
+        <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="lib/dataTables/jquery.dataTables.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <script src="lib/jquery/jquery.min.js"></script>
+        <script src="lib/dataTables/jquery.dataTables.min.js"></script>
+        <script src="js/popup.js"></script>
+    </head>
+    <body>
+        <ul class="nav nav-tabs nav-justified .list-inline">
+            <li class="active"><a href="#">Dictionary Mode</a></li>
+            <li><a href="#">Random Mode</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+        <label class="switch">
+            <input type="checkbox" name="dictionary" id="dictionary_id" value="value">
+            <span class="slider round"></span>
+        </label>
+        <label for="dictionary_id">Dictionary Mode</label>
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th>Translation</th>
+                    <th>Source</th>
+                    <th>Skip Word?</th>
+                </tr>
+            </thead>
+        </table>
+        <div id="text-holder">
+            ha
+        </div>
+        <a id="click-this">Click this link to change other text</a>
+    </body>
+</html>

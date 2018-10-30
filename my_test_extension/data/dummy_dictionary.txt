@@ -1,0 +1,46 @@
+{
+  "data": [
+    [
+      "and",
+      "et",
+      "Duolingo",
+      "false"
+    ],
+    [
+      "variety",
+      "variété",
+      "Duolingo",
+      "false"
+    ],
+    [
+      "computer",
+      "ordinateur",
+      "Uploaded",
+      "true"
+    ],
+    [
+      "and",
+      "et",
+      "Duolingo",
+      "false"
+    ],
+    [
+      "variety",
+      "variété",
+      "Duolingo",
+      "false"
+    ],
+    [
+      "computer",
+      "ordinateur",
+      "Uploaded",
+      "true"
+    ],
+    [
+      "and",
+      "et",
+      "Duolingo",
+      "false"
+    ]
+  ]
+}

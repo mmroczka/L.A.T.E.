@@ -9,3 +9,11 @@ function hellYeah(text) {
   document.getElementById("text-holder").innerHTML = text;
 }
 
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": "data/dummy_dictionary.txt",
+        "scrollY": "200px",
+        "scrollCollapse": true,
+        "paging": false
+    } );
+} );
