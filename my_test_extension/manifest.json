@@ -1,8 +1,8 @@
 {
-    "name": "My Chrome Extension",
+    "name": "Translation Extension",
     "version": "1.0",
     "manifest_version": 2,
-    "description": "This extension is running the Python code.",
+    "description": "This extension translates words on a webpage to help you learn a new language faster!",
 
     "browser_action": 
     {
