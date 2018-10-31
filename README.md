@@ -1,3 +1,5 @@
+# STILL UNDER CONSTRUCTION
+
 ## Overview
 
 This open source project is designed to help people learn languages faster. For example, I'm learning French which is very different from my first language - English. With this Chrome extension I can define a dictionary of word/translation pairs that I am learning in my French lessons and upload them to the extension. The extension then uses a lightning quick algorithm to scan each webpage and switch every English word pair to the French equivalent right on the webpage!
