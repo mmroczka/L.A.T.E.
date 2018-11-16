@@ -1,6 +1,8 @@
+// When page is fully loaded
 document.addEventListener('DOMContentLoaded', function () {
+    // Add event listeners to checkboxes
     var checkboxes = document.querySelectorAll('input.subOption'),
-        checkall = document.getElementById('option');
+        checkall = document.getElementById('tooltip');
 
     for(var i=0; i<checkboxes.length; i++) {
       checkboxes[i].onclick = function() {
@@ -16,9 +18,56 @@ document.addEventListener('DOMContentLoaded', function () {
         checkboxes[i].checked = this.checked;
       }
     }
+
+    rememberPreviousSettings();
+
+    // Add event listener to Save button
+    document.getElementById("save").addEventListener("click", function() {
+        saveChanges();
+    });
 });
 
-function pickColor() {
-    var x = document.getElementById("myColor").value;
-    document.getElementById("demo").innerHTML = x;
+function saveChanges() {
+    alert("Changes Saved!");
+    chrome.storage.sync.set({'tooltip': $('#tooltip').is(":checked")});
+    chrome.storage.sync.set({'audioLink': $('#audioLink').is(":checked")});
+    chrome.storage.sync.set({'pronounciationGuide': $('#pronounciationGuide').is(":checked")});
+    chrome.storage.sync.set({'addWord': $('#addWord').is(":checked")});
+    chrome.storage.sync.set({'changeWordColor': $('#changeWordColor').is(":checked")});
 }
+
+function rememberPreviousSettings(){
+    chrome.storage.sync.get(null, function(storage) {
+        // alert(JSON.stringify(storage, null, 4));
+
+        // Get the elements values from when we last loaded the checkboxes
+        var tooltip = $('#tooltip');
+        var audioLink= $('#audioLink');
+        var pronounciationGuide = $('#pronounciationGuide');
+        var addWord = $('#addWord');
+        var changeWordColor = $('#changeWordColor');
+
+        // Get the values from when we last loaded the checkboxes and set all checkboxes except tooltip
+        audioLink.prop("checked", storage.audioLink);
+        pronounciationGuide.prop("checked", storage.pronounciationGuide);
+        addWord.prop("checked", storage.addWord);
+        changeWordColor.prop("checked", storage.changeWordColor)
+
+        // Determine if we need to set tooltip to indeterminate or just set it to a boolean true/false
+        if ((storage.audioLink === false || storage.addWord === false || storage.pronounciationGuide === false) && (storage.audioLink === true || storage.addWord === true || storage.pronounciationGuide === true)){
+            // alert("We have deduced that tooltip was indeterminate on last load");
+            tooltip.prop("indeterminate", true);
+        }
+        else{
+            tooltip.prop("checked", storage.tooltip);
+        }
+    });
+}
+
+
+// chrome.storage.onChanged.addListener(function(changes, namespace) {
+//     for (key in changes) {
+//         var storageChange = changes[key];
+//         alert('Storage key ' + key + ' in namespace ' + namespace + ' changed. Old value was ' + storageChange.oldValue + ', new value is ' + storageChange.newValue);
+//     }
+// });

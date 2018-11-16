@@ -7,6 +7,17 @@ $(document).ready(function() {
     } );
 } );
 
+// When page is fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Settings
+    rememberPreviousSettings();
+
+    // Add dictionaryMode Button
+    document.getElementById("dictionary_id").addEventListener("click", function() {
+        saveChanges();
+    });
+});
+
 
 function saveChanges() {
     // Save it using the Chrome extension storage API.
@@ -19,23 +30,13 @@ function rememberPreviousSettings(){
         // alert(JSON.stringify(storage, null, 4));
         if (storage.dictionaryMode === undefined){
             alert("Undefined");
-        } 
-        else if (storage.dictionaryMode === true){
-            $('#dictionary_id').prop("checked", storage.dictionaryMode)
-        } else{
+        }
+        else{
             $('#dictionary_id').prop("checked", storage.dictionaryMode)
         }
 
     });
 }
-
-document.addEventListener('DOMContentLoaded', function () {
-    var dictionaryModeButton = document.getElementById("dictionary_id");
-    rememberPreviousSettings();
-    dictionaryModeButton.addEventListener("click", function() {
-        saveChanges();
-    });
-});
 
 
 // chrome.storage.onChanged.addListener(function(changes, namespace) {
