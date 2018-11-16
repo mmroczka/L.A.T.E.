@@ -55,28 +55,31 @@
                     <option selected value="3">3</option>
                 </select> paragraph(s).
             </div>
-            <div class="custom-control custom-radio">
-                <input type="radio" id="customRadioInline1" name="customRadio" value="1" checked>
-                <label class="custom-control-label" for="customRadioInline1">Translate Percentage of Words</label>
+            <div class="percentOrNumber">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadioInline1" name="customRadio" value="1" checked>
+                    <label class="custom-control-label" for="customRadioInline1">Translate Percentage of Words</label>
+                </div>
+                <select name="percentage" id="percentage">
+                    <option value="5">5</option>
+                    <option selected value="10">10</option>
+                </select>
+                <label for="percentageType">% of</label>
+                <select name="percentageType" id="percentageType">
+                    <option selected value="words">words</option>
+                    <option value="sentences">sentences</option>
+                </select>.
             </div>
-            <select name="percentage" id="percentage">
-                <option value="5">5</option>
-                <option selected value="10">10</option>
-            </select>
-            <label for="percentageType">% of</label>
-            <select name="percentageType" id="percentageType">
-                <option selected value="words">words</option>
-                <option value="sentences">sentences</option>
-            </select>.
-            <!-- <div class="custom-control custom-radio"> -->
-            <!--     <input type="radio" id="customRadioInline2" name="customRadio" value="2"> -->
-            <!--     <label class="custom-control-label" for="customRadioInline2">Translate Number of Words</label> -->
-            <!-- </div> -->
-            <!-- <select name="number" id="numberType"> -->
-            <!--     <option selected value="5">5</option> -->
-            <!--     <option value="10">10</option> -->
-            <!-- </select> words per page. -->
-            </form>
+            <div class="percentOrNumber">
+                <div class="custom-control custom-radio">
+                    <input type="radio" id="customRadioInline2" name="customRadio" value="2">
+                    <label class="custom-control-label" for="customRadioInline2">Translate Number of Words</label>
+                </div>
+                <select name="number" id="numberType">
+                    <option selected value="5">5</option>
+                    <option value="10">10</option>
+                </select> words per page.
+            </div>
         </div>
     </body>
 </html>

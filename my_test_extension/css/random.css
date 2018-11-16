@@ -69,3 +69,13 @@ input:checked + .slider:before {
   margin: 40px auto;
   max-width: 700px;
 }
+
+.percentOrNumber {
+    float: left;
+    width: 50%;
+    padding: 25px;
+}
+
+input[type='checkbox'] {
+    margin-left: -18px;
+}
