@@ -65,3 +65,7 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
+.container {
+    margin: 40px auto;
+    max-width:700px;
+}

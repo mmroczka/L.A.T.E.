@@ -29,7 +29,7 @@ function rememberPreviousSettings(){
     chrome.storage.sync.get(null, function(storage) {
         // alert(JSON.stringify(storage, null, 4));
         if (storage.dictionaryMode === undefined){
-            alert("Undefined");
+            chrome.storage.sync.set({'dictionaryMode': false});
         }
         else{
             $('#dictionary_id').prop("checked", storage.dictionaryMode)
