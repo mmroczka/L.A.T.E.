@@ -44,12 +44,12 @@
                 </select>.
             </div>
             <div class="checkbox">
-                <label><input type="checkbox" value="dontTranslate" checked>Don't translate words already in my dictionary - let dictionary mode
+                <label><input type="checkbox" id="useDictionary" name="useDictionary" checked>Don't translate words already in my dictionary - let dictionary mode
                     translate them automatically.</label>
             </div>
             <div>
                 <label for="limit">Limit to first</label>
-                <select name="limit" id="limit">
+                <select name="limit" id="paragraphLimit">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option selected value="3">3</option>
@@ -57,25 +57,25 @@
             </div>
             <div class="percentOrNumber">
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadioInline1" name="customRadio" value="1" checked>
-                    <label class="custom-control-label" for="customRadioInline1">Translate Percentage of Words</label>
+                    <input type="radio" id="percent" name="customRadio" value="1" checked>
+                    <label class="custom-control-label" for="customRadioInline1">Translate percent</label>
                 </div>
-                <select name="percentage" id="percentage">
+                <select name="percentValue" id="percentValue">
                     <option value="5">5</option>
                     <option selected value="10">10</option>
                 </select>
-                <label for="percentageType">% of</label>
-                <select name="percentageType" id="percentageType">
+                <label for="percentType">% of</label>
+                <select name="percentType" id="percentType">
                     <option selected value="words">words</option>
                     <option value="sentences">sentences</option>
                 </select>.
             </div>
             <div class="percentOrNumber">
                 <div class="custom-control custom-radio">
-                    <input type="radio" id="customRadioInline2" name="customRadio" value="2">
-                    <label class="custom-control-label" for="customRadioInline2">Translate Number of Words</label>
+                    <input type="radio" id="number" name="customRadio" value="2">
+                    <label class="custom-control-label" for="customRadioInline2">Translate Number</label>
                 </div>
-                <select name="number" id="numberType">
+                <select name="number" id="numberValue">
                     <option selected value="5">5</option>
                     <option value="10">10</option>
                 </select> words per page.
