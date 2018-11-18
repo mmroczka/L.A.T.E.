@@ -5,18 +5,18 @@ document.addEventListener('DOMContentLoaded', function () {
         checkall = document.getElementById('tooltip');
 
     for(var i=0; i<checkboxes.length; i++) {
-      checkboxes[i].onclick = function() {
-        var checkedCount = document.querySelectorAll('input.subOption:checked').length;
+        checkboxes[i].onclick = function() {
+            var checkedCount = document.querySelectorAll('input.subOption:checked').length;
 
-        checkall.checked = checkedCount > 0;
-        checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
-      }
+            checkall.checked = checkedCount > 0;
+            checkall.indeterminate = checkedCount > 0 && checkedCount < checkboxes.length;
+        }
     }
 
     checkall.onclick = function() {
-      for(var i=0; i<checkboxes.length; i++) {
-        checkboxes[i].checked = this.checked;
-      }
+        for(var i=0; i<checkboxes.length; i++) {
+            checkboxes[i].checked = this.checked;
+        }
     }
 
     rememberPreviousSettings();
@@ -29,11 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 function saveChanges() {
     alert("Changes Saved!");
-    chrome.storage.sync.set({'tooltip': $('#tooltip').is(":checked")});
-    chrome.storage.sync.set({'audioLink': $('#audioLink').is(":checked")});
-    chrome.storage.sync.set({'pronounciationGuide': $('#pronounciationGuide').is(":checked")});
-    chrome.storage.sync.set({'addWord': $('#addWord').is(":checked")});
-    chrome.storage.sync.set({'changeWordColor': $('#changeWordColor').is(":checked")});
+    chrome.storage.sync.set({'tooltip': $('#tooltip').is(":checked"),
+        'audioLink': $('#audioLink').is(":checked"),
+        'pronounciationGuide': $('#pronounciationGuide').is(":checked"),
+        'addWord': $('#addWord').is(":checked"),
+        'changeWordColor': $('#changeWordColor').is(":checked")
+    });
 }
 
 function rememberPreviousSettings(){

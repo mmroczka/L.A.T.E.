@@ -4,47 +4,47 @@ document.addEventListener('DOMContentLoaded', function () {
     rememberPreviousSettings();
 
     // Add randomMode Button
-    document.getElementById("random_id").addEventListener("change", function() {
+    document.getElementById("random_id").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add languageFrom auto-save
-    document.getElementById("languageFrom").addEventListener("change", function() {
+    document.getElementById("languageFrom").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add languageTo auto-save
-    document.getElementById("languageTo").addEventListener("change", function() {
+    document.getElementById("languageTo").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add useDictionary auto-save
-    document.getElementById("useDictionary").addEventListener("change", function() {
+    document.getElementById("useDictionary").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add paragraphLimit auto-save
-    document.getElementById("paragraphLimit").addEventListener("change", function() {
+    document.getElementById("paragraphLimit").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add percent auto-save
-    document.getElementById("percent").addEventListener("change", function() {
+    document.getElementById("percent").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add percent auto-save
-    document.getElementById("number").addEventListener("change", function() {
+    document.getElementById("number").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add percent auto-save
-    document.getElementById("percentValue").addEventListener("change", function() {
+    document.getElementById("percentValue").addEventListener("click", function() {
         saveChanges();
     });
 
     // Add percent auto-save
-    document.getElementById("percentType").addEventListener("change", function() {
+    document.getElementById("percentType").addEventListener("click", function() {
         saveChanges();
     });
 });
@@ -52,22 +52,22 @@ document.addEventListener('DOMContentLoaded', function () {
 function saveChanges() {
     // Save it using the Chrome extension storage API.
     // alert(JSON.stringify(v, null, 4));
-    chrome.storage.sync.set({'randomMode': $('#random_id').is(":checked")});
-    chrome.storage.sync.set({'languageFrom': $('#languageFrom option:selected').val()});
-    chrome.storage.sync.set({'languageTo': $('#languageTo option:selected').val()});
-    chrome.storage.sync.set({'useDictionary': $('#useDictionary').is(":checked")});
-    chrome.storage.sync.set({'paragraphLimit': $('#paragraphLimit option:selected').val()});
-
+    var percentOrNumber = "number";
     if(document.getElementById("percent").checked == true){
         // percentage is selected so save it
-        chrome.storage.sync.set({'percentOrNumber': "percent"});
-    } else {
-        chrome.storage.sync.set({'percentOrNumber': "number"});
+        percentOrNumber = "percent";
     }
+    chrome.storage.sync.set({'randomMode': $('#random_id').is(":checked"),
+        'languageFrom': $('#languageFrom option:selected').val(),
+        'languageTo': $('#languageTo option:selected').val(),
+        'useDictionary': $('#useDictionary').is(":checked"),
+        'paragraphLimit': $('#paragraphLimit option:selected').val(),
+        'percentOrNumber': percentOrNumber,
+        'percentValue': $('#percentValue option:selected').val(),
+        'percentType': $('#percentType option:selected').val(),
+        'numberValue': $('#numberValue option:selected').val()
+    });
 
-    chrome.storage.sync.set({'percentValue': $('#percentValue option:selected').val()});
-    chrome.storage.sync.set({'percentType': $('#percentType option:selected').val()});
-    chrome.storage.sync.set({'numberValue': $('#numberValue option:selected').val()});
 }
 
 function rememberPreviousSettings(){
@@ -77,15 +77,16 @@ function rememberPreviousSettings(){
             || storage.paragraphLimit === undefined || storage.percentageOrNumber === undefined
             || storage.percentValue === undefined || storage.percentType === undefined
             || storage.numberValue === undefined){
-            chrome.storage.sync.set({'randomMode': false});
-            chrome.storage.sync.set({'languageFrom': "Detect Language"});
-            chrome.storage.sync.set({'languageTo': "French"});
-            chrome.storage.sync.set({'useDictionary': true});
-            chrome.storage.sync.set({'paragraphLimit': 3});
-            chrome.storage.sync.set({'percentOrNumber': "percent"});
-            chrome.storage.sync.set({'percentValue': 10});
-            chrome.storage.sync.set({'percentType': "words"});
-            chrome.storage.sync.set({'numberValue': 5});
+            chrome.storage.sync.set({'randomMode': false,
+                'languageFrom': "Detect Language",
+                'languageTo': "French",
+                'useDictionary': true,
+                'paragraphLimit': 3,
+                'percentOrNumber': "percent",
+                'percentValue': 10,
+                'percentType': "words",
+                'numberValue': 5
+            });
         }
         else{
             $('#random_id').prop("checked", storage.randomMode)
