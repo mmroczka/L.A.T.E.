@@ -4,7 +4,7 @@
     "manifest_version": 2,
     "description": "This extension translates words on a webpage to help you learn a new language faster!",
 
-    "browser_action": 
+    "browser_action":
     {
         "default_icon": "icon.png",
         "default_popup": "index.html"
@@ -16,19 +16,28 @@
         "enabled": true
     },
 
+    "background": {
+        "persistent": false,
+        "scripts": ["js/background.js"]
+    }
+
+    ,
     "content_scripts": [ {
        "run_at": "document_end",
-       "css": [ 
+       "css": [
             "css/main.css",
             "css/random.css",
             "css/settings.css",
-            "css/popup.css"
+            "css/popup.css",
+           "lib/dataTables/jquery.dataTables.min.css"
        ],
        "js":[
            "lib/jquery/jquery.min.js",
+           "lib/dataTables/jquery.dataTables.min.js",
            "js/random.js",
            "js/settings.js",
-           "js/dictionary.js"
+           "js/dictionary.js",
+           "js/translate.js"
        ],
        "matches": [ "<all_urls>", "http://*/*", "https://*/*" ]
     } ],
