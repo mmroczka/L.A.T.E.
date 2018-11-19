@@ -64,11 +64,3 @@ function rememberPreviousSettings(){
         }
     });
 }
-
-
-// chrome.storage.onChanged.addListener(function(changes, namespace) {
-//     for (key in changes) {
-//         var storageChange = changes[key];
-//         alert('Storage key ' + key + ' in namespace ' + namespace + ' changed. Old value was ' + storageChange.oldValue + ', new value is ' + storageChange.newValue);
-//     }
-// });

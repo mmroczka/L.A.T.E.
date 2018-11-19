@@ -1,4 +1,17 @@
-$(document).ready(function() {
+// When page is fully loaded
+document.addEventListener('DOMContentLoaded', function () { // Settings
+    rememberPreviousSettings();
+
+    // Add dictionaryMode Button action
+    document.getElementById("dictionary_id").addEventListener("click", function() {
+        saveChanges();
+    });
+
+    // Add Upload Button action
+    document.getElementById("upload").addEventListener("click", function() {
+        window.open("html/popup.html", "Upload Your Dictionary", "height=500,width=500");
+    });
+
     var table = $('#example').DataTable( {
         columns : [
             {data: null, render: 'word'},
@@ -11,26 +24,20 @@ $(document).ready(function() {
         "paging": false
     });
 
-    table.row.add(new Word("the", "et", "Duolingo", false));
-    table.row.add(new Word("variety", "variété", "Duolingo", false));
-    table.row.add(new Word("computer", "ordinateur", "Upload", true));
-    table.draw();
-} );
-
-function getDictionary(){
+    dictionary = {}
     chrome.storage.sync.get(null, function(storage) {
-        if (storage.dictionary === undefined){
-            return JSON.parse(storage.dictionary);
-        } else{
-            return JSON.parse(storage.dictionary);
+        if (storage.dictionary !== undefined){
+            dictionary = JSON.parse(storage.dictionary);
+            Object.keys(dictionary).forEach(function(key, index){
+                table.row.add(new Word(key, dictionary[key].translation, dictionary[key].source, dictionary[key].skipWord));
+            });
+
+            table.draw();
+
         }
     });
-};
 
-function getDictionaryFromFile(){
-};
-
-
+} );
 
 function Word (word, translation, source, skipWord){
     this._word = word;
@@ -52,18 +59,6 @@ function Word (word, translation, source, skipWord){
     }
 };
 
-// When page is fully loaded
-document.addEventListener('DOMContentLoaded', function () {
-    // Settings
-    rememberPreviousSettings();
-
-    // Add dictionaryMode Button
-    document.getElementById("dictionary_id").addEventListener("click", function() {
-        saveChanges();
-    });
-});
-
-
 function saveChanges() {
     // Save it using the Chrome extension storage API.
     var dictionaryMode = $('#dictionary_id').is(":checked");
@@ -83,11 +78,9 @@ function rememberPreviousSettings(){
     });
 }
 
-
 // chrome.storage.onChanged.addListener(function(changes, namespace) {
 //     for (key in changes) {
 //         var storageChange = changes[key];
 //         // alert('Storage key ' + key + ' in namespace ' + namespace + ' changed. Old value was ' + storageChange.oldValue + ', new value is ' + storageChange.newValue);
 //     }
 // });
-
