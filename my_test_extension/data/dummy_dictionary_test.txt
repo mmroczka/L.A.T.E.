@@ -6,11 +6,16 @@
     },
         "variety": {
             "translation": "variété",
-            "source": "Duolingo",
-            "skipWord": false
+            "source": "Uploaded",
+            "skipWord": true
         },
         "computer": {
             "translation": "ordinateur",
+            "source": "Uploaded",
+            "skipWord": false
+        },
+        "new": {
+            "translation": "nouveau",
             "source": "Uploaded",
             "skipWord": false
         }
