@@ -1,0 +1,17 @@
+{
+    "and": {
+        "translation": "et",
+            "source": "Duolingo",
+            "skipWord": false
+    },
+        "variety": {
+            "translation": "variété",
+            "source": "Duolingo",
+            "skipWord": false
+        },
+        "computer": {
+            "translation": "ordinateur",
+            "source": "Uploaded",
+            "skipWord": true
+        }
+}
