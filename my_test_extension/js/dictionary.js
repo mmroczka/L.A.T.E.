@@ -3,13 +3,19 @@ document.addEventListener('DOMContentLoaded', function () { // Settings
     rememberPreviousSettings();
 
     // Add dictionaryMode Button action
-    document.getElementById("dictionary_id").addEventListener("click", function() {
+    document.getElementById("dictionary_id").addEventListener("change", function() {
         saveChanges();
     });
 
     // Add Upload Button action
     document.getElementById("upload").addEventListener("click", function() {
         window.open("html/popup.html", "Upload Your Dictionary", "height=500,width=500");
+    });
+
+    // Add Clear Button action
+    document.getElementById("clear").addEventListener("click", function() {
+        chrome.storage.sync.set({'dictionary': "{}"});
+        document.location.reload(true);
     });
 
     var table = $('#example').DataTable( {
