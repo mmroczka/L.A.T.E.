@@ -12,6 +12,20 @@ document.addEventListener('DOMContentLoaded', function () { // Settings
         window.open("html/popup.html", "Upload Your Dictionary", "height=500,width=500");
     });
 
+    // // Add Export Button action
+    // document.getElementById("export").addEventListener("click", function() {
+    //     chrome.storage.sync.get(null, function(storage) {
+    //         dictionary = JSON.parse(storage.dictionary);
+    //         var data = JSON.stringify(dictionary, null, 2);
+    //         // alert(data);
+    //         // var url = 'data:text/json;charset=utf8,' + encodeURIComponent(data);
+    //         // window.open(url, '_blank');
+    //         var FileSaver = require('file-saver');
+    //         var blob = new Blob([data], {type: "text/plain;charset=utf-8"});
+    //         FileSaver.saveAs(blob, "dictionary.txt");
+    //     })
+    // });
+
     // Add Clear Button action
     document.getElementById("clear").addEventListener("click", function() {
         chrome.storage.sync.set({'dictionary': "{}"});
@@ -44,6 +58,22 @@ document.addEventListener('DOMContentLoaded', function () { // Settings
     });
 
 } );
+
+function saveFile (name, type, data) {
+    if (data != null && navigator.msSaveBlob)
+        return navigator.msSaveBlob(new Blob([data], { type: type }), name);
+
+    var a = $("<a style='display: none;'/>");
+    var url = window.URL.createObjectURL(new Blob([data], {type: type}));
+    a.attr("href", url);
+    a.attr("download", name);
+    $("body").append(a);
+    a[0].click();
+    setTimeout(function(){  // fixes firefox html removal bug
+        window.URL.revokeObjectURL(url);
+        a.remove();
+    }, 500);
+}
 
 function Word (word, translation, source, skipWord){
     this._word = word;
