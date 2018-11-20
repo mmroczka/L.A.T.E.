@@ -14,7 +14,17 @@ function translate() {
                         htmlString = htmlString.replace(key, '<element style="color:red; id="translation">' +  dictionary[key].translation + "</element>");
                     }
                 });
-
+                // alternate way of replacing using regex and avoiding html tags
+                /*
+                 *  var regex = /[>]([^<]*)(computer)([^<]*)/g
+                 *  var translateWord = "ordinateur";
+                 *   let result;
+                 *   while(result = regex.exec(str)){
+                 *     str = str.replace(result[1], ">" + translateWord);
+                 *   }
+                 *   console.log(str);
+                 *
+                    * */
                 paragraph.html(htmlString);
 
                 // var pString = $paragraph.text();
