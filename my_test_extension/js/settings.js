@@ -33,7 +33,8 @@ function saveChanges() {
         'audioLink': $('#audioLink').is(":checked"),
         'pronounciationGuide': $('#pronounciationGuide').is(":checked"),
         'addWord': $('#addWord').is(":checked"),
-        'changeWordColor': $('#changeWordColor').is(":checked")
+        'changeWordColor': $('#changeWordColor').is(":checked"),
+        'wordColor': document.getElementById("wordColor").value
     });
 }
 
@@ -47,13 +48,14 @@ function rememberPreviousSettings(){
         var pronounciationGuide = $('#pronounciationGuide');
         var addWord = $('#addWord');
         var changeWordColor = $('#changeWordColor');
+        var wordColor = document.getElementById("wordColor");
 
         // Get the values from when we last loaded the checkboxes and set all checkboxes except tooltip
         audioLink.prop("checked", storage.audioLink);
         pronounciationGuide.prop("checked", storage.pronounciationGuide);
         addWord.prop("checked", storage.addWord);
         changeWordColor.prop("checked", storage.changeWordColor)
-
+        wordColor.value = storage.wordColor;
         // Determine if we need to set tooltip to indeterminate or just set it to a boolean true/false
         if ((storage.audioLink === false || storage.addWord === false || storage.pronounciationGuide === false) && (storage.audioLink === true || storage.addWord === true || storage.pronounciationGuide === true)){
             // alert("We have deduced that tooltip was indeterminate on last load");
