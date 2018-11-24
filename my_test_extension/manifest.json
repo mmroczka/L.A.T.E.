@@ -23,23 +23,24 @@
 
     ,
     "content_scripts": [ {
-       "run_at": "document_end",
-       "css": [
+        "run_at": "document_end",
+        "css": [
             "css/main.css",
             "css/random.css",
             "css/settings.css",
             "css/popup.css",
-           "lib/dataTables/jquery.dataTables.min.css"
-       ],
-       "js":[
-           "lib/jquery/jquery.min.js",
-           "lib/dataTables/jquery.dataTables.min.js",
-           "js/random.js",
-           "js/settings.js",
-           "js/dictionary.js",
-           "js/translate.js"
-       ],
-       "matches": [ "<all_urls>", "http://*/*", "https://*/*" ]
+            "lib/dataTables/jquery.dataTables.min.css"
+        ],
+        "js":[
+            "lib/jquery/jquery.min.js",
+            "lib/dataTables/jquery.dataTables.min.js",
+            "js/random.js",
+            "js/settings.js",
+            "js/dictionary.js",
+            "js/translate.js",
+            "lib/tippy/tippy.all.min.js"
+        ],
+        "matches": [ "<all_urls>", "http://*/*", "https://*/*" ]
     } ],
 
     "permissions": [
