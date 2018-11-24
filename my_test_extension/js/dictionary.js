@@ -103,12 +103,44 @@ function saveChanges() {
 
 function rememberPreviousSettings(){
     chrome.storage.sync.get(null, function(storage) {
-        // alert(JSON.stringify(storage, null, 4));
+        // Save initial settings for Dictionary Mode page
         if (storage.dictionaryMode === undefined){
             chrome.storage.sync.set({'dictionaryMode': false});
         }
         else{
             $('#dictionary_id').prop("checked", storage.dictionaryMode)
+        }
+
+        // Save initial settings for Random Mode page
+        if (storage.randomMode === undefined || storage.languageFrom === undefined
+            || storage.languageTo === undefined || storage.useDictionary === undefined
+            || storage.paragraphLimit === undefined || storage.percentageOrNumber === undefined
+            || storage.percentValue === undefined || storage.percentType === undefined
+            || storage.numberValue === undefined){
+            chrome.storage.sync.set({'randomMode': false,
+                'languageFrom': "Detect Language",
+                'languageTo': "French",
+                'useDictionary': true,
+                'paragraphLimit': 3,
+                'percentOrNumber': "percent",
+                'percentValue': 10,
+                'percentType': "words",
+                'numberValue': 5
+            });
+        }
+
+        // Save initial settings for Settings page
+        if (storage.tooltip === undefined || storage.audioLink === undefined
+            || storage.pronounciationGuide === undefined || storage.addWord === undefined
+            || storage.changeWordColor === undefined || storage.wordColor === undefined
+        ){
+            chrome.storage.sync.set({'tooltip': true,
+                'audioLink': true,
+                'pronounciationGuide': true,
+                'addWord': true,
+                'changeWordColor': true,
+                'wordColor': "#FF3400"
+            });
         }
 
     });
