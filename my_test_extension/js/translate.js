@@ -13,14 +13,13 @@ function translate() {
             var dictionaryTranslationsCount = 0;
             $.each($("p"), function(index, paragraph) {
                 var paragraph = $(paragraph);
-                var pText = paragraph.text();
-                pText = pText.split(" ");
-                htmlString = paragraph.html();
-                if (pText != ""){
-                    Object.keys(dictionary).forEach(function(key, index){
-                        if (!dictionary[key].skipWord){
-                            var regex = new RegExp("[>]([^<]*)(?![^a-z|A-Z])(" + key + ")(?=[^a-r|A-R|t-z|T-Z])([^<]*)", "gi");
-                            let paragraphMatches = getMatches(htmlString, regex);
+                htmlString = "<p>" + paragraph.html() + "</p>";
+                Object.keys(dictionary).forEach(function(key, index){
+                    if (!dictionary[key].skipWord){
+                        let paragraphMatches = [];
+                        do {
+                            var regex = new RegExp("[>]([^<]*)(?![^a-z|A-Z])(" + key + ")([^<]*)", "gi");
+                            paragraphMatches = getMatches(htmlString, regex);
                             if (paragraphMatches.length > 0){
                                 for (var i = 0; i < paragraphMatches.length; i++){
                                     var translatedWord = dictionary[key].translation;
@@ -43,23 +42,15 @@ function translate() {
                                         // word is most likely plural so don't add space at the end to keep the original word's "s"
                                         endingElement = "</element>";
                                     }
-
                                     var fullTextToSwap = ">" + match[1] + beginningElement + translatedWord + endingElement + match[3];
                                     htmlString = htmlString.replace(match[0], fullTextToSwap);
-                                    var $translation = $("#translation" + dictionaryTranslationsCount);
-                                    tippy.setDefaults({
-                                        arrow: true,
-                                        delay: 40,
-                                        theme: 'my-tippy'
-                                    });
                                     dictionaryTranslationsCount += 1;
                                 }
                             }
-                        }
-                    });
-
-                    paragraph.html(htmlString);
-                }
+                        } while (paragraphMatches.length > 0);
+                    }
+                });
+                paragraph.html(htmlString);
             });
         }
     });
