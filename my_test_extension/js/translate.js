@@ -27,10 +27,7 @@ function translate() {
                                     var match = paragraphMatches[i];
                                     var tooltip = "";
                                     if (storage.tooltip){
-                                        // tooltip = 'data-tippy="' + match[2] + '" data-tippy-delay="500"';
-                                        tippy('', {
-
-                                        });
+                                        tooltip = 'data-tippy="' + match[2] + '" data-tippy-delay="500" data-tippy-animation="perspective"';
                                     }
                                     var beginningElement = '<element ' + changeWordColor + ' id="translation' + dictionaryTranslationsCount + '" ' + tooltip + '>' + ' ';
                                     var endingElement = ' ' + '</element>';
