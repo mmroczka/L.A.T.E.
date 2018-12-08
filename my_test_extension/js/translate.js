@@ -18,7 +18,7 @@ function translate() {
                 if (!dictionary[key].skipWord){
                     let paragraphMatches = [];
                     var regex = new RegExp("[>]([^<]*)(?![^a-z|A-Z])(" + key + ")([^<]*)", "gi");
-                    paragraphMatches = getMatches(htmlString, regex);
+                    paragraphMatches = getMatches(bodyHTML, regex);
                     if (paragraphMatches.length > 0){
                         for (var i = 0; i < paragraphMatches.length; i++){
                             var translatedWord = dictionary[key].translation;
@@ -33,16 +33,8 @@ function translate() {
                                 // word we are translating is uppercase, so change key to uppercase to match it
                                 translatedWord = translatedWord.charAt(0).toUpperCase() + translatedWord.slice(1);
                             }
-                            if (/[^a-z|A-Z]/i.test(match[1].substr(-1))){
-                                // if there is something non-alphanumeric right before our keyword it's probably a hyphenated word or a punction of some type, so don't add a space
-                                beginningElement = '<element ' + changeWordColor + ' id="translation' + dictionaryTranslationsCount + '" ' + tooltip + '>';
-                            }
-                            if (match[0].toLowerCase().includes(key+'s')){
-                                // word is most likely plural so don't add space at the end to keep the original word's "s"
-                                endingElement = "</element>";
-                            }
                             var fullTextToSwap = ">" + match[1] + beginningElement + translatedWord + endingElement + match[3];
-                            htmlString = htmlString.replace(match[0], fullTextToSwap);
+                            bodyHTML = bodyHTML.replace(match[0], fullTextToSwap);
                             dictionaryTranslationsCount += 1;
                         }
                     }
