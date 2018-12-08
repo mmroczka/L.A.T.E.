@@ -1,8 +1,14 @@
 # STILL UNDER CONSTRUCTION
 
+
+![Alarm Clock Ringing](alarm_icon.png)
+
+## What Is L.A.T.E.?
+LATE stands for Language Acquistion Translation Extension. This is a passive way to increase time in front of foreign words naturally. The thought is that it's better to study L.A.T.E. than never!
+
 ## Overview
 
-This open source project is designed to help people learn languages faster. For example, I'm learning French which is very different from my first language - English. With this Chrome extension I can define a dictionary of word/translation pairs that I am learning in my French lessons and upload them to the extension. The extension then uses a lightning quick algorithm to scan each webpage and switch every English word pair to the French equivalent right on the webpage!
+This open source project is designed to help people learn languages faster. For example, I'm learning French which is very different from my first language - English. With this Chrome extension I can define a dictionary of word/translation pairs that I am learning in my French lessons and upload them to the extension. The extension then uses a lightning quick algorithm to scan each webpage and switch every English word pair to the French equivalent right on the webpage! 
 
 ## Mockup of Extension
 
