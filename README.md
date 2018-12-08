@@ -1,7 +1,7 @@
 # STILL UNDER CONSTRUCTION
 
 
-![Alarm Clock Ringing](alarm_icon.png =250x250)
+<img src="alarm_icon.png" alt="alt text" width="250" height="250">
 
 ## What Is L.A.T.E.?
 LATE stands for Language Acquistion Translation Extension. This is a passive way to increase time in front of foreign words naturally. The thought is that it's better to study L.A.T.E. than never!
