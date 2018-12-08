@@ -6,13 +6,17 @@
         </title>
         <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../lib/dataTables/jquery.dataTables.min.css">
-        <link rel="stylesheet" type="text/css" href="../css/random.css">
+        <link rel="stylesheet" type="text/css" href="../css/popup.css">
         <script src="../lib/jquery/jquery.min.js"></script>
         <script src="../lib/dataTables/jquery.dataTables.min.js"></script>
         <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="../js/popup.js"></script>
     </head>
     <body>
-        Select a file: <input type="file" id="file" name="myFile"><br><br>
+        <div class="container">
+        Select a file: <input type="file" id="file" name="myFile" accept=".txt,.json"><br><br>
+        <p>Don't know what the format should look like?</p>
+        <a class="btn btn-primary" id="export_dummy" href="#" role="button">Download Dummy Dictionary</a>
+        </div>
     </body>
 </html>

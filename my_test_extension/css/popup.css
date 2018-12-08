@@ -1,4 +1,9 @@
-.translation{
-    color: red;
-    font-weight: bold;
+body {
+    min-width: 800px;
+    background-color: lightblue;
+}
+
+.container {
+    margin: 40px auto;
+    max-width:700px;
 }

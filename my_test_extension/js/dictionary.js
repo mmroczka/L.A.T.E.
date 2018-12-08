@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () { // Settings
 
     // Add Upload Button action
     document.getElementById("upload").addEventListener("click", function() {
-        window.open("html/popup.html", "Upload Your Dictionary", "height=500,width=500");
+        PopupCenter("html/popup.html", "Upload Your Dictionary", "500", "500");
     });
 
     // Add Export Button action
@@ -61,20 +61,22 @@ document.addEventListener('DOMContentLoaded', function () { // Settings
 
 } );
 
-function saveFile (name, type, data) {
-    if (data != null && navigator.msSaveBlob)
-        return navigator.msSaveBlob(new Blob([data], { type: type }), name);
+function PopupCenter(url, title, w, h) {
+    // Fixes dual-screen position                         Most browsers      Firefox
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : window.screenX;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : window.screenY;
 
-    var a = $("<a style='display: none;'/>");
-    var url = window.URL.createObjectURL(new Blob([data], {type: type}));
-    a.attr("href", url);
-    a.attr("download", name);
-    $("body").append(a);
-    a[0].click();
-    setTimeout(function(){  // fixes firefox html removal bug
-        window.URL.revokeObjectURL(url);
-        a.remove();
-    }, 500);
+    var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    var top = ((height / 2) - (h / 2)) + dualScreenTop;
+    var newWindow = window.open(url, title, 'scrollbars=yes, width=' + w + ', height=' + h + ', top=' + top + ', left=' + left);
+
+    // Puts focus on the newWindow
+    if (window.focus) {
+        newWindow.focus();
+    }
 }
 
 function Word (word, translation, source, skipWord){
@@ -147,10 +149,3 @@ function rememberPreviousSettings(){
 
     });
 }
-
-// chrome.storage.onChanged.addListener(function(changes, namespace) {
-//     for (key in changes) {
-//         var storageChange = changes[key];
-//         // alert('Storage key ' + key + ' in namespace ' + namespace + ' changed. Old value was ' + storageChange.oldValue + ', new value is ' + storageChange.newValue);
-//     }
-// });

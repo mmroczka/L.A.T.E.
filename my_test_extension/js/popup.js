@@ -1,9 +1,42 @@
 // on page load
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("file").addEventListener('change', saveDictionaryFromFile, false);
+
+    // Add Dummy Dictionary Export Button action
+    document.getElementById("export_dummy").addEventListener("click", function() {
+        var dummy = JSON.parse(createDummyDictionary());
+        var data = JSON.stringify(dummy);
+        const filename = 'dummy_dictionary.txt';
+        let element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
+        element.setAttribute('download', filename);
+        element.style.display = 'none';
+        document.body.appendChild(element);
+        element.click();
+        document.body.removeChild(element);
+    });
 });
 
-
+function createDummyDictionary(){
+    var dictionary = {
+        "and": {
+            "translation": "et",
+                "source": "Uploaded",
+                "skipWord": false
+        },
+        "computer": {
+            "translation": "ordinateur",
+            "source": "Uploaded",
+            "skipWord": false
+        },
+        "new": {
+            "translation": "nouveau",
+            "source": "Uploaded",
+            "skipWord": false
+        }
+    };
+    return JSON.stringify(dictionary);
+};
 function saveDictionaryFromFile(evt) {
     var file = this.files[0];
     var reader = new FileReader();
@@ -12,11 +45,6 @@ function saveDictionaryFromFile(evt) {
         if (isValidJson(text)){
             alert("VALID JSON! SAVING OBJECT");
             var dictionary = isValidJson(text);
-            // if ("and" in dictionary){
-            //     alert("this is a good way to look things up ");
-            // } else {
-            //     alert("not a good way");
-            // }
             chrome.storage.sync.set({'dictionary': JSON.stringify(dictionary)});
         } else {
             alert("INVALID JSON!");
@@ -48,10 +76,3 @@ function isValidJson(jsonString){
 
     return false;
 };
-
-// chrome.storage.onChanged.addListener(function(changes, namespace) {
-//     for (key in changes) {
-//         var storageChange = changes[key];
-//         alert('Storage key ' + key + ' in namespace ' + namespace + ' changed. Old value was ' + storageChange.oldValue + ', new value is ' + storageChange.newValue);
-//     }
-// });
