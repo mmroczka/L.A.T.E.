@@ -17,20 +17,20 @@ Because I believe design is an important part of building a useful program, I ma
 ### Dictionary Mode
 Using a dictionary either imported from Duolingo or made independently, the extension translates words on the webpage with what you want in real time. This allows you to constantly see words you've already learned increasing your ability to recall them in different contexts.
 
-<img src="https://github.com/mmroczka/translation_extension/blob/master/data/dictionary_mode.gif" alt="alt text" width="800" height="400">
+<img src="/data/dictionary_mode.gif" alt="alt text" width="800" height="400">
 
 
 ### Random Mode
 
 This mode randomly translates a certain percentage of words on the page to the language of your choice. It allows you to see a small percentage of new words and identify based on context what they mean. In the settings tab there are also options to show a tool tip with the word translated back if you can't identify the words meaning from context.
 
-<img src="https://github.com/mmroczka/translation_extension/blob/master/data/random_mode.gif" alt="alt text" width="800" height="400">
+<img src="/data/random_mode.gif" alt="alt text" width="800" height="400">
 
 ### Clear Import & Export Your Dicitonary
 
 You own your data so it is stored locally on your machine and you have total control on importing, exporting and deleting your data. You can even learned words from Duolingo!
 
-<img src="https://github.com/mmroczka/translation_extension/blob/master/data/clear_import_export.gif" alt="alt text" width="800" height="400">
+<img src="/data/clear_import_export.gif" alt="alt text" width="800" height="400">
 
 ## Motivation
 
